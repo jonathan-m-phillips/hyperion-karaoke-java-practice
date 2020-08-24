@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Album {
     private String name;
-    private List<Object> songs;
+    private List<Song> songs;
 
-    public Album(String name, List<Object> songs) {
+    public Album(String name, List<Song> songs) {
         this.name = name;
         this.songs = songs;
     }
@@ -18,25 +20,37 @@ public class Album {
         this.name = name;
     }
 
-    public List<Object> getSongs() {
+    public List<Song> getSongs() {
         return songs;
     }
 
-    public void setSongs(List<Object> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
 
     public void printTrackListings () {
         System.out.printf("%s track listing...", name);
         int count = 1;
-        for (Object tracks : songs) {
-            System.out.printf("\n%d. %s by %s", count, tracks);
+        System.out.println();
+        for (Song tracks : songs) {
+            System.out.println(tracks.getTitle() + " by " + tracks.getArtist());
+            count++;
         }
     }
 
     public static void main(String[] args) {
-        Song song1 = new Song("Last Night's Makeup", "Josh Ward", Song.parseLyrics("Watching you wakeup in last night's makeup"));
-        Album album = new Album("Holding Me Together", Collections.singletonList(song1.getTitle()));
-        album.printTrackListings();
+
+        Album TheRoad = new Album("The Road", Arrays.asList(
+                new Song("75", "Aaron Lewis", Song.parseLyrics("Drifters like me")),
+                new Song("The Road", "Aaron Lewis", Song.parseLyrics("On the road")),
+                new Song("Endless Summer", "Aaron Lewis", Song.parseLyrics("This endless summer")),
+                new Song("Red, White, & Blue", "Aaron Lewis", Song.parseLyrics("of the red white and blue")),
+                new Song("Lessons Learned", "Aaron Lewis", Song.parseLyrics("learning lessons")),
+                new Song("Forever", "Aaron Lewis", Song.parseLyrics("forever is a song"))
+        ));
+
+        TheRoad.printTrackListings();
+
     }
+
 }

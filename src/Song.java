@@ -39,11 +39,6 @@ public class Song {
     static List<String> parseLyrics (String input) {
         List<String> output;
         output = Arrays.asList(input.split(" "));
-        System.out.println(output);
         return output;
-    }
-
-    public static void main(String[] args) {
-        parseLyrics("hello world i love you so");
     }
 }
