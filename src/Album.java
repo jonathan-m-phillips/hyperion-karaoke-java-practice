@@ -38,19 +38,4 @@ public class Album {
         }
     }
 
-    public static void main(String[] args) {
-
-        Album TheRoad = new Album("The Road", Arrays.asList(
-                new Song("75", "Aaron Lewis", Song.parseLyrics("Drifters like me")),
-                new Song("The Road", "Aaron Lewis", Song.parseLyrics("On the road")),
-                new Song("Endless Summer", "Aaron Lewis", Song.parseLyrics("This endless summer")),
-                new Song("Red, White, & Blue", "Aaron Lewis", Song.parseLyrics("of the red white and blue")),
-                new Song("Lessons Learned", "Aaron Lewis", Song.parseLyrics("learning lessons")),
-                new Song("Forever", "Aaron Lewis", Song.parseLyrics("forever is a song"))
-        ));
-
-        TheRoad.printTrackListings();
-
-    }
-
 }

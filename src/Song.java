@@ -36,7 +36,7 @@ public class Song {
         this.lyrics = lyrics;
     }
 
-    static List<String> parseLyrics (String input) {
+    public static List<String> parseLyrics (String input) {
         List<String> output;
         output = Arrays.asList(input.split(" "));
         return output;

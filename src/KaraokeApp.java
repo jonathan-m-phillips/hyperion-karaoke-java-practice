@@ -1,14 +1,15 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class KaraokeApp {
 
-//    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 //
 //        Scanner scanner = new Scanner(System.in);
 //        String userChoice = null;
 //
-//        Player musicPlayer = new MusicPlayer("victoria"); // can change the voice
+        Player musicPlayer = new MusicPlayer("victoria"); // can change the voice
 //        Player lyricsPlayer = new LyricsPlayer("blue"); // can change the color
 //
         Album a = new Album("90s Hits", Arrays.asList(
@@ -16,6 +17,18 @@ public class KaraokeApp {
            new Song("Ready to Go", "Republica", Song.parseLyrics("I'm standing on the rooftops shouting out, Baby, I'm ready to go")),
            new Song("Airbag", "Radiohead", Song.parseLyrics("In an interstellar burst I am back to save the universe"))
         ));
+
+        Album TheRoad = new Album("The Road", Arrays.asList(
+                new Song("75", "Aaron Lewis", Song.parseLyrics("Drifters like me")),
+                new Song("The Road", "Aaron Lewis", Song.parseLyrics("On the road")),
+                new Song("Endless Summer", "Aaron Lewis", Song.parseLyrics("This endless summer")),
+                new Song("Red, White, & Blue", "Aaron Lewis", Song.parseLyrics("of the red white and blue")),
+                new Song("Lessons Learned", "Aaron Lewis", Song.parseLyrics("learning lessons")),
+                new Song("Forever", "Aaron Lewis", Song.parseLyrics("forever is a song"))
+        ));
+
+        TheRoad.printTrackListings();
+        musicPlayer.play(TheRoad);
 //
 //        runKaraokeMachine(scanner, userChoice, musicPlayer, lyricsPlayer, a);
 //
@@ -38,6 +51,6 @@ public class KaraokeApp {
 //        } else {
 //            musicPlayer.play(a);
 //        }
-//    }
+    }
 
 }

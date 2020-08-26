@@ -1,4 +1,5 @@
 import java.io.IOException;
+import static java.lang.Thread.sleep;
 
 public class MusicPlayer extends Player {
     private String voice = "";
@@ -15,16 +16,22 @@ public class MusicPlayer extends Player {
         this.voice = voice;
     }
 
-//    void play () throws IOException {
-//        Runtime r = Runtime.getRuntime();
-//        r.exec("say " + Song.parseLyrics());
-//    }
+    @Override
+    public void play(Song song) throws IOException, InterruptedException {
+        Runtime r = Runtime.getRuntime();
+        sleep(INTRO_PAUSE);
+        for (String word : song.getLyrics()) {
+            r.exec("say " + word);
+            sleep(WORD_CADENCE);
+        }
+    }
 
-    public static void main(String[] args) throws IOException {
-        Song song = new Song("HomeTown girl", "Josh Turner", Song.parseLyrics("She a pretty little homegrown home town girl"));
-        MusicPlayer musicPlayer = new MusicPlayer("hi");
-
-//        musicPlayer.play();
+    @Override
+    public void play(Album album) throws IOException, InterruptedException {
+        Runtime r = Runtime.getRuntime();
+        for (Song song : album.getSongs()) {
+            play(song);;
+        }
     }
 
 }

@@ -1,13 +1,8 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 public interface Playable {
-    Playable playable = new Playable() {
-        public void play() {
-            new Album("Empty", Arrays.asList(new Song("Empty", "Empty", Song.parseLyrics("empty"))));
-        }
-        public void play() {
-            new Song("Empty", "Empty", Song.parseLyrics("Empty"));
-        }
-    };
+    public void play(Album album) throws IOException, InterruptedException;
+    public void play(Song song) throws IOException, InterruptedException;
 }
